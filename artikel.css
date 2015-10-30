@@ -1,0 +1,240 @@
+/* De vormgeving van de artikelen, ronding eromheen
+De padding zorgt ervoor dat de tekst niet
+tegen de rand aan gedrukt zit*/
+article{
+    padding: 1em;
+    background: lightblue;
+    opacity: 0.9;
+    border-radius: 1em;
+    box-shadow: 0.625em 0.625em 0.3125em #888888;
+}
+
+
+/*De vormgeving van de de body; achtergrond, font en de
+breedte van het artikel en de header*/
+body{
+    background-color: #c2c2c6;
+    font-size: 1.2em;
+    max-width: 70em;
+    height: 70em;
+}
+
+/*Geef h1,h2,h3 en h4 schaduw*/
+h1, h2, h3, h4{
+    text-shadow: 0.25em 0.25em #c2c2c6;
+}
+
+/*Je selecteert alle eerste headers--> Pseudo Class*/
+header:nth-child(1n) {
+    color: green;
+    font-variant: small-caps;
+}
+
+/*Geef alle eerste p's die na een h1 volgen een andere
+achtergrond kleur. Je kunt alleen elementen selecteren
+op hetzelfde niveau--> Sibling combinators*/
+h1 ~ p{
+   background-color: pink;
+   border-radius: 0.2em;
+ }
+
+ /*-Atribute Selector de linkjes krijgen een lichtgroene achtergrond kleur*/ 
+    a[target] {
+    background-color: lightgreen;
+}
+
+blockquote{
+    font-style: italic;
+}
+
+/**
+ * Flexbox in de header
+ */
+/*Opmaak van de header van de pagina*/
+body > header:first-child{
+    background-color: red;
+    padding: 0;
+    margin: 0;
+    margin-top: 1.25em;
+      margin-left: 0.625em;
+      margin-right: 0.625em;
+      border-radius: 0.625em;
+
+ /* Geeft aan de elementen die zich hier binnen in bevinden zich 
+   flex moeten gedragen */
+  display: flex;
+
+  /* Elementen proberen van zichzelf allemaal op een lijn te passen,
+  door een wrap aan te maken kan je positioneren en door row
+  aan te zetten maak je er een rijtje van*/
+   flex-direction: row;
+   flex-wrap: wrap;
+
+  /* Hoeveel ruimte er zich tussen de blokken bevindt. */
+  justify-content: space-around;
+}
+
+
+/* Spreekt h1 aan van de eerste header in de body*/
+body > header:first-child > h1,
+body > header:first-child > p,
+body > header:first-child > section,
+body > header:first-child > nav,
+body > header:first-child > form,
+body > header:first-child > a
+ {
+  width: 11.875em;
+  height: 6.875em;
+  margin-top: 2em;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0.625em;
+  padding-bottom: 1%;
+}
+
+/*Tekst header naar boven
+Spreekt de ul aan in de nav van de eerste header in de body*/
+body > header:first-child > nav > ul{
+    margin-top: 0;
+}
+
+/*Opmaak van de unorderdlist in de header
+van de pagina*/
+ul{
+  list-style-type:none;
+  padding-left: 0.625em;
+  padding-bottom: 0.625em;
+}
+
+/*Is de zoekbalk in de header.*/
+header > form{
+  margin: 0.625em;
+ }
+
+ /*Hierdoor valt de tekst binnen de boxjes*/
+ article{
+  margin: 1.25em;
+}
+
+/*Opmaak zoekbalk*/
+#zoekoptie{ /*ID Selector*/
+  margin-top:3.5em;
+  margin-left:2em;
+  margin-bottom:2em;
+  margin-right:2em;
+}
+
+/*Child selector, pakt alle h1 in de header*/
+header > h1{
+    font-size: 1em;
+}
+
+a{
+    text-decoration: none;
+}
+
+ /*Dit selecteert een element waarvan de waarde van een bepaald
+ attribuut eindigt op een tekens tekens. Daarvoor gebruik je het
+ dollartaken in de selector.
+ Transform scale= zorgt ervoor dat de afbeelding klein blijft.
+ Vertical align= zorgt ervoor dat de afbeelding in het midden blijft.
+ Inline-block= zorgt ervoor dat de afbeelding voor de tekst blijft.*/
+a[href$='.pdf']::before {
+    content: url(http://www.adobe.com/images/shared/product_mnemonics/50x50/acrobat_reader_50x50.gif);
+    display: inline-block;
+    vertical-align: middle;
+    transform: scale(.5);
+}
+
+a[href$='.vcf']::before {
+    content: url(http://cdn.filesuffix.com/images/extension/unknown/gvx.png);
+    display:inline-block;
+    vertical-align: middle;
+    transform: scale(.5);
+}
+
+a[href$='.jpg']::before {
+    content: url(http://www.pcsozluk.com/wp-content/uploads/2012/06/jpg-icon.gif);
+    display: inline-block;
+    vertical-align: middle;
+    transform: scale(.5);
+}
+
+/*Wordt de h2 groter als je erover hovert*/
+h2:hover{
+    font-size: 200%;
+    transition: all 0.3s ease;
+}
+/*Laat de afbeeldingen 360 graden draaien met 
+een snelheid van 0.3*/
+img:hover {
+    transform:rotate(360deg);
+    transition: all 0.3s ease;
+ }
+
+/*de afbeelding met het poppetje*/
+img{
+width: 60%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 2%;
+}
+
+/*de andere afbeelding*/
+#afb{
+width: 50%;}
+
+video{
+  width:50%;
+  display:block;
+  margin:0 auto;
+}
+
+/*Mediaqueries*/
+
+/*Bij een maximale breedte van 65em laat de 
+tweede afbeelding verdwijnen*/
+ @media (max-width: 65em) {
+  #afb{
+    display: none;
+  }
+
+/*Bij een maximale breedte van 46.625em
+laat de header onder elkaar schuiven
+als een column en center de header.*/
+@media (max-width: 46.625em) {
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
+/*Is nodig anders schuiven de elementen tegen de rand aan*/
+body > header > h1,
+body > header > p,
+body > header > section,
+body > header > nav,
+body > header > form,
+body > header > a,
+body > header > img{
+margin-left: auto;
+margin-right: auto;
+}*
+}
+
+/*laat bij een maximale breedte van 82.938 de profielpagina verdwijnen*/
+@media (max-width: 82.938em){
+.to-profile{
+    display:none;
+}
+
+/*Laat de linkjes bij downloads verdwijnen*/
+@media (max-width: 35em) {
+  .muziekdownloads{
+    display: none;
+  }
+    
+}
+
+

@@ -1,0 +1,335 @@
+/* Row= naast elkaar
+   Wrap= onder als het niet meer past
+   Space-around=  ruimte tussen de blokken*/
+  header{
+  background-color: pink;
+  padding: 0.625em;
+  margin-top: 20px;
+  margin-left: 0.750em;
+  margin-right: 0.750em;
+  border-radius: 0.625em;
+  box-shadow: 0.625em 0.625em 5px #888888;
+   /* Geeft aan de elementen die zich hier binnen in bevinden zich 
+   flex moeten gedragen */
+  display: flex;
+
+  /* Elementen proberen van zichzelf allemaal op een lijn te passen,
+  door een wrap aan te maken kan je positioneren en door row
+  aan te zetten maak je er een rijtje van*/
+   flex-direction: row;
+   flex-wrap: wrap;
+
+  /* Hoeveel ruimte er zich tussen de blokken bevindt. */
+  justify-content: space-around;
+}
+
+/*Maakt de header, die witte vlakken op de achtergrond en de formaat
+CSS Combinator*/
+body > header > h1,
+body > header > p,
+body > header > section,
+body > header > nav,
+body > header > form,
+body > header > a
+body > header > img {
+  width: 11.875em;
+  height: 6.875em;
+  margin-top: 2em;
+  text-align: center;
+  /*overflow: hidden;*/
+  background-color: yellow;
+  border-radius: 0.625em;
+}
+
+
+/*Aanmeld tekst in het midden
+CSS Combinator
+Spreek het formulier aan wat zich bevindt in de header van de body*/
+body > header > form{
+  text-align: center;
+  margin-left: 1.5625em;
+  margin-right: 1.875em;
+}
+
+/*Navigatie wordt naar boven verplaatst
+CSS Combinators & first-child Selector
+Spreekt de ul aan in de navigatie in de eerste header van de body*/
+body > header:first-child > nav > ul{
+  margin-top: 0%;
+}
+
+/*Selecteert het eerste element en zorgt voor de kleine letters
+nth-child(n) selector*/
+header:nth-child(1n) {
+  font-variant: small-caps;
+}
+
+/*General selector: Spreek de eerste section van de header aan.*/
+header ~ section:first-of-type/*first-child Selector*/ {
+  background: white;
+  border-radius: 0.625em;
+  margin-left: 1.750em;
+  margin-right: 1.750em;
+}
+
+/*spreekt in de tweede section de h1 aan
+nth-child(n) selector en child selector*/
+section:nth-child(2) > h1{
+margin-left: 3%;
+padding-top: 3%;
+}
+
+/*spreekt in de tweede section de p aan
+Child selectoren en nth-child(n) selector*/
+section:nth-child(2) > p{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+/*Pakt elke 4 vierde paragraaf, begint bij 0
+nth-child(n) selector*/
+p:nth-child(4n) {
+  padding-bottom: 1%;
+}
+/*Opmaak achtergrond van de body*/
+body{
+  background: lightblue;
+  opacity: 0.9;
+  font-size: 1.2em;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+/*Vragen komen onder elkaar met 1% ertussen, anders dicht op elkaar*/
+label{
+  display: block;
+  margin: 1%;
+}
+
+/*Opmaak navigatie header, tekst midden)*/
+ul{
+  list-style-type:none;
+  padding-left: 0.625em;
+}
+
+a{
+  text-decoration: none;
+}
+
+/*Alle afbeelingen spreekt die aan die in de section staat
+Child selectoren*/
+section > img{
+  width: 3.125em;
+  height: 6.25em;
+}
+
+/*Header de ruimte tussen de blokken*/
+form{
+  /*margin: 0.625em;*/
+  background-color: white;
+  border-radius: 0.625em;
+  margin: 1.25em;
+}
+
+/*versiering artikel*/
+article{
+  margin: 1.25em;
+  box-shadow: 0.625em 0.625em 0.3125em #888888;
+  border-radius: 0.625em;
+}
+
+/*Naam boven de gedeelte van het formulier groter*/
+legend{
+  font-size: 150%;
+}
+
+/*Schaduw achter het formulier*/
+ fieldset{
+    box-shadow: 0.625em 0.625em 0.3125em #888888;
+    margin-top: 0.8em;
+ }
+
+/*descendant selector= alle textareas in de fieldset worden aangesproken*/
+ fieldset textarea {
+  width:100%;
+ }
+
+/*Opmaak artikelen onderaan*/
+ article {
+  background-color: white;
+  padding: 2%;
+ }
+
+/*Spreekt het label aan wat zich in de formulier van de header van de body bevindt*/
+body > header > form > label {
+  margin:10%;
+}
+
+/*Maakt de font van H1 header kleiner*/
+header > h1{
+  font-size: 1em;
+}
+
+#sitemap{
+  background-color: lightgreen;
+  box-shadow: 0.625em 0.625em 0.3125em #888888;
+  border-radius: 0.625em;
+  padding-right: 0.9375em;
+  padding-left: 0.9375em;
+  margin-bottom: 1.25em;
+}
+
+#search{
+background-color: red;
+margin-bottom: 1.25em;
+box-shadow: 0.625em 0.625em 0.3125em #888888;
+border-radius: 0.625em;
+padding-right: 0.9375em;
+padding-left: 0.625em;
+}
+
+#about{
+background-color: yellow;
+box-shadow: 0.625em 0.625em 0.3125em #888888;
+border-radius: 0.625em;
+padding-right: 0.625em;
+padding-left: 0.625em;
+margin-bottom: 1.25em;
+max-width: 87%
+}
+
+#about > p{
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  margin-bottom: 1.25em;
+}
+
+#contact{
+  background-color: orange;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  box-shadow: 0.625em 0.625em 0.3125em #888888;
+  border-radius: 0.625em;
+  padding-left: 0.625em;
+  margin-bottom: 1.25em;
+}
+
+#credits{
+background-color: pink;
+box-shadow: 0.625em 0.625em 0.3125em #888888;
+border-radius: 0.625em;
+padding-right: 0.9375em;
+padding-left: 3%;
+margin-bottom: 1.25em;
+}
+
+#feedback{
+  background-color: lightgreen;
+  padding-top: 2.1875em;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  box-shadow: 0.625em 0.625em 0.3125em #888888;
+  border-radius: 0.625em;
+  padding-left: 0.625em;
+  margin-bottom: 1.25em;
+}
+/*CSS Combinator*/
+section > ul > li > a{
+  margin-left: 0.625em;
+ /* justify-content:inline-block;*/
+}
+
+footer{
+
+  /* We first create a flex layout context */
+  display: flex;
+
+  /*
+   Flex= dat het een flexbox is
+   Row= naast elkaar
+   Wrap= onder als het niet meer past
+   Space-around=  ruimte tussen de blokken*/
+   flex-direction: row;
+   flex-wrap: wrap;
+
+
+  justify-content: space-around;
+}
+
+ /*Dit selecteert een element waarvan de waarde van een bepaald
+ attribuut eindigt op een tekens tekens. Daarvoor gebruik je het
+ dollartaken in de selector.
+ Transform scale= zorgt ervoor dat de afbeelding klein blijft.
+ Vertical align= zorgt ervoor dat de afbeelding in het midden blijft.
+ Inline-block= zorgt ervoor dat de afbeelding voor de tekst blijft.*/
+a[href$='.pdf']::before {
+  content: url(http://www.adobe.com/images/shared/product_mnemonics/50x50/acrobat_reader_50x50.gif);
+  display: inline-block;
+  vertical-align: middle;
+  transform: scale(.5);
+}
+
+a[href$='.vcf']::before {
+  content: url(http://cdn.filesuffix.com/images/extension/unknown/gvx.png);
+  display: inline-block;
+  vertical-align: middle;
+  transform: scale(.5);
+}
+
+a[href$='.jpg']::before {
+  content: url(http://www.pcsozluk.com/wp-content/uploads/2012/06/jpg-icon.gif);
+  display: inline-block;
+  vertical-align: middle;
+  }
+
+  h2, h3{
+    text-align: center;
+  }
+
+  input{
+    font-size: 1em;
+  }
+
+/*Laat de fieldset niet zien, deze worden weer aangesproken met Javascript*/
+form > fieldset:nth-child(3),
+form > fieldset:nth-child(4)
+{
+    display: none;
+}
+
+
+/*Mediaqueries, de downloadlinks verdwijnen bij een maximale breedte van 35 em*/
+@media (max-width: 35em) {
+  .muziekdownloads{
+    display: none;
+  }
+
+/*Bij een maximale breedte van 46.625em veranderd row naar column
+en worden de elementen gecentreerd*/
+@media (max-width: 46.625em) {
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
+body > header > h1,
+body > header > p,
+body > header > section,
+body > header > nav,
+body > header > form,
+body > header > a,
+body > header > img{
+margin-left: auto;
+margin-right: auto;
+}
+}
+
+/*De profielpagina verdwijnt bij een breedte van 82.938*/
+@media (max-width: 82.938em){
+.to-profile{
+  display:none;
+}
+
+}
+
